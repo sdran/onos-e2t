@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2020-present Open Networking Foundation <info@opennetworking.org>
 //
-// SPDX-License-Identifier: LicenseRef-ONF-Member-1.0
+// SPDX-License-Identifier: Apache-2.0
 
 package asn1cgo
 
@@ -113,7 +113,7 @@ func decodeE2connectionSetupFailedItemBytes(array [144]byte) (*e2ap_pdu_contents
 	tnlAddrbitsUnused := int(binary.LittleEndian.Uint32(array[16:20]))
 	tnlAddrbytes := C.GoBytes(unsafe.Pointer(uintptr(binary.LittleEndian.Uint64(array[:8]))), C.int(tnlAddrsize))
 
-		tnlPortPtrC := (*C.BIT_STRING_t)(unsafe.Pointer(uintptr(binary.LittleEndian.Uint64(array[48:56]))))
+	tnlPortPtrC := (*C.BIT_STRING_t)(unsafe.Pointer(uintptr(binary.LittleEndian.Uint64(array[48:56]))))
 
 	e2csfItemC := C.E2connectionSetupFailed_Item_t{
 		tnlInformation: C.TNLinformation_t{

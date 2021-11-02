@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2020-present Open Networking Foundation <info@opennetworking.org>
 //
-// SPDX-License-Identifier: LicenseRef-ONF-Member-1.0
+// SPDX-License-Identifier: Apache-2.0
 
 package asn1cgo
 
@@ -65,7 +65,7 @@ func PerDecodeGlobalE2nodeID(bytes []byte) (*e2apies.GlobalE2NodeId, error) {
 		return nil, err
 	}
 	if unsafePtr == nil {
-		return nil,  fmt.Errorf("pointer decoded from PER is nil")
+		return nil, fmt.Errorf("pointer decoded from PER is nil")
 	}
 	return decodeGlobalE2NodeID((*C.GlobalE2node_ID_t)(unsafePtr))
 }
