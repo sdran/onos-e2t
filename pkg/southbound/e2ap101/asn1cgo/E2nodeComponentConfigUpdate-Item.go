@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2020-present Open Networking Foundation <info@opennetworking.org>
 //
-// SPDX-License-Identifier: LicenseRef-ONF-Member-1.0
+// SPDX-License-Identifier: Apache-2.0
 
 package asn1cgo
 
@@ -106,11 +106,11 @@ func decodeE2nodeComponentConfigUpdateItem(e2nodeComponentConfigUpdateItemC *C.E
 	}
 	e2nodeComponentConfigUpdateItem.E2NodeComponentType = *componentType
 
-	if e2nodeComponentConfigUpdateItemC.e2nodeComponentID != nil{
+	if e2nodeComponentConfigUpdateItemC.e2nodeComponentID != nil {
 		e2nodeComponentConfigUpdateItem.E2NodeComponentId, err = decodeE2nodeComponentID(e2nodeComponentConfigUpdateItemC.e2nodeComponentID)
-		if err != nil{
-		return nil, fmt.Errorf("decodeE2nodeComponentID() %s", err.Error())
-	}
+		if err != nil {
+			return nil, fmt.Errorf("decodeE2nodeComponentID() %s", err.Error())
+		}
 	}
 	e2nodeComponentConfigUpdateItem.E2NodeComponentConfigUpdate, err = decodeE2nodeComponentConfigUpdate(&e2nodeComponentConfigUpdateItemC.e2nodeComponentConfigUpdate)
 	if err != nil {
